@@ -97,6 +97,6 @@ Both should print a version number, not a "command not found" error.
 
 - **Extension**: Firefox, WebExtensions API, Manifest V3
 - **Backend**: Python, FastAPI
-- **ML**: HuggingFace, Transformers
+- **ML**: HuggingFace Transformers
 - **Database**: PostgreSQL
 - **Infra**: Docker / docker-compose
