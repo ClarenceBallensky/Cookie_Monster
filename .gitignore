@@ -1,0 +1,42 @@
+# --- Environment / secrets ---
+.env
+*.env
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# --- Node / extension ---
+node_modules/
+dist/
+build/
+web-ext-artifacts/
+*.xpi
+
+# --- ML model artifacts (too large for git; use HF hub or shared storage) ---
+models/*.bin
+models/*.safetensors
+models/*.pt
+*.ckpt
+runs/
+wandb/
+
+# --- Database ---
+*.sqlite3
+*.db
+pgdata/
+
+# --- Docker ---
+*.log
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
