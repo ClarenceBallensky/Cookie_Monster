@@ -1,4 +1,4 @@
-# Privacy Inspector
+# Cookie Monster
 
 A Firefox extension that compares what a website's privacy policy **claims** about
 data collection against what the site **actually does** during a page visit.
@@ -71,7 +71,7 @@ Both should print a version number, not a "command not found" error.
 1. Clone the repo and copy the env template:
    ```bash
    git clone <repo-url>
-   cd privacy-inspector
+   cd Cookie_Monster
    cp .env.example .env
    ```
 2. Bring up the backend + database:
