@@ -36,16 +36,17 @@ to the OPP-115-tuned model.
 ## Repo layout
 
 ```
-privacy-inspector/
-├── extension/           # Firefox extension (WebExtensions API, Manifest V3)
+Cookie_Monster/
+├── extension/            # Firefox extension (WebExtensions API, Manifest V3)
 ├── data-processing/      # OPP-115 preprocessing + cookie database
-│   └── policy-snippets/   # manually extracted cookie-related policy text per site
+│   ├── policy-snippets/   # manually extracted cookie-related policy text per site
+│   └── cookie-supplement.csv  # team-added lookups for cookies unrecognized by Open Cookie Database
 ├── ml-models/            # category filter + attribute extractor models
 ├── backend/              # FastAPI app, Postgres migrations, Dockerfile
 ├── crosswalk/            # crosswalk table + four-quadrant comparison logic
 ├── docs/
-│   ├── ARCHITECTURE.md    # how the pieces fit together
-│   ├── DATA_CONTRACTS.md  # schemas passed between roles — read before coding
+│   ├── ARCHITECTURE.md     # how the pieces fit together
+│   └── DATA_CONTRACTS.md   # schemas passed between roles — read before coding
 ├── docker-compose.yml
 └── .env.example
 ```
