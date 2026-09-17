@@ -41,7 +41,7 @@ Cookie_Monster/
 ├── data-processing/      # OPP-115 preprocessing + cookie database
 │   ├── policy-snippets/   # manually extracted cookie-related policy text per site
 │   └── cookie-supplement.csv  # team-added lookups for cookies unrecognized by Open Cookie Database
-├── ml-models/            # category filter + attribute extractor models
+├── ml-models/            # attribute extractor model
 ├── backend/              # FastAPI app, Postgres migrations, Dockerfile
 ├── crosswalk/            # crosswalk table + four-quadrant comparison logic
 ├── docs/
@@ -75,15 +75,18 @@ Both should print a version number, not a "command not found" error.
    cd Cookie_Monster
    cp .env.example .env
    ```
-2. Bring up the backend + database:
+2. Open the Docker app and wait until the container is running. 
+![alt text](image.png)
+
+3. Bring up the backend + database:
    ```bash
    docker compose up --build
    ```
    FastAPI will be available at `http://localhost:8000`, Postgres at `localhost:5432`.
-3. Load the extension in Firefox:
+4. Load the extension in Firefox:
    - Go to `about:debugging#/runtime/this-firefox`
    - Click **Load Temporary Add-on** and select `extension/manifest.json`
-4. **Before writing code that hands data to another role**, read
+5. **Before writing code that hands data to another role**, read
    [`docs/DATA_CONTRACTS.md`](docs/DATA_CONTRACTS.md). Schema mismatches between
    data-processing → ML → backend are the biggest integration risk on this project.
 

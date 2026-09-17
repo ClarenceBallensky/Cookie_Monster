@@ -10,7 +10,7 @@ they're agreed, ideally in Week 1–2.
 
 ---
 
-## Contract 0: manual policy-snippet extraction → `ml-models` (inference)
+## Contract 0: manual policy-snippet extraction → `ml-model` (inference)
 
 **Owner (producer):** Whole team, manual task
 

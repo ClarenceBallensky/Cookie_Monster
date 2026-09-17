@@ -40,8 +40,8 @@ one at **inference** time, per site:
 
 ```
 Training time:
-  OPP-115 dataset ──► data-processing              ──► fine-tune category filter
-                      preprocessing,                   + attribute extractor
+  OPP-115 dataset ──► data-processing              ──► fine-tune 
+                      preprocessing,                   attribute extractor
                       segment/attribute labels       
 
 Inference time, per site (MVP: manual extraction):
