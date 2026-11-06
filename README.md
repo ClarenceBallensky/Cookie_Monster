@@ -18,17 +18,13 @@ For each site visited, the extension surfaces a four-quadrant comparison:
 The table shows this as raw sanitized data — no generated explanation of
 what a mismatch means; the user interprets it themselves.
 
-For the MVP, cookie-related sections of each site's privacy policy are
-identified **manually** by the team (keyword/ctrl+F search) before being fed
-to the OPP-115-tuned model.
-
 ## Team & ownership
 
 | Area | Folder | Owner |
 |---|---|---|
 | Firefox extension + cookie capture | `extension/` | Frontend |
+| Cookie-related text extraction script | `extraction-script/` | Frontend
 | OPP-115 & cookie DB preprocessing | `data-processing/` | Data scientists |
-| Category filter model | `ml-models/category_filter/` | ML scientists |
 | Attribute extractor model | `ml-models/attribute_extractor/` | ML scientists |
 | FastAPI / Postgres / Docker | `backend/` | Backend |
 | Crosswalk table + comparison logic | `crosswalk/` | Tech Lead |
@@ -38,6 +34,7 @@ to the OPP-115-tuned model.
 ```
 Cookie_Monster/
 ├── extension/            # Firefox extension (WebExtensions API, Manifest V3)
+├── extraction-script     # cookie-related snippets extraction script
 ├── data-processing/      # OPP-115 preprocessing + cookie database
 │   ├── policy-snippets/   # manually extracted cookie-related policy text per site
 │   └── cookie-supplement.csv  # team-added lookups for cookies unrecognized by Open Cookie Database

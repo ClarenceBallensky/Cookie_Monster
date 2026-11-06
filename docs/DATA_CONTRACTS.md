@@ -10,17 +10,14 @@ they're agreed, ideally in Week 1–2.
 
 ---
 
-## Contract 0: manual policy-snippet extraction → `ml-model` (inference)
+## Contract 0: cookie-related snippets extraction → `ml-model`
 
 **Owner (producer):** Whole team, manual task
 
 **Owner (consumer):** ML people
 
-For each site in the starter set, a team member manually extracts the
-cookie-related sections of that site's privacy policy (ctrl+F against a
-predetermined keyword list) and records it in this format. This is separate
-from OPP-115 training data (Contract 1) — this is real per-site input text
-that the *already fine-tuned* model classifies at inference time.
+The frontend will write a script to extract cookie-related sections from the privacy policies from the sites in the starter set. This script will reference a
+predetermined list of cookie-related kewywords/phrases and extract sections of the policy surrounding those keywords/phrases. This is separate from OPP-115 training data (Contract 1) — this is real per-site input text that the *already fine-tuned* model classifies at inference time.
 
 ```json
 {
@@ -33,10 +30,8 @@ that the *already fine-tuned* model classifies at inference time.
 }
 ```
 
-Suggested storage: one row per site in a shared CSV/JSON file, e.g.
-`data-processing/policy-snippets/`, committed to the repo so it's versioned
-alongside everything else (these are just extracted text excerpts, not full
-scraped policies — should be small enough to check in directly).
+Suggested storage: one row per site in a shared CSV/JSON file committed to the repo (these are just extracted text excerpts, not full
+scraped policies).
 
 Open questions:
 - [ ] Who maintains the keyword list, and where does it live?
@@ -81,7 +76,7 @@ Open questions to resolve early:
 
 **Owner (consumer):** Backend 
 
-**Ingestion script owner:** Backend. ML people are only responsible for producing output in the JSON shape below — The backend people write and own the script that reads it and inserts it into Postgres.
+**Ingestion script owner:** Backend. ML scientists are only responsible for producing output in the JSON shape below; the backend people write and own the script that reads it and inserts it into Postgres.
 
 ```json
 {
@@ -130,7 +125,7 @@ Database using **cookie name + the cookie's own setting domain together**. The w
 
 Open questions:
 - [ ] Behavior when a cookie name isn't found in Open Cookie Database (unknown vendor)
-- [ ] How categories here map to OPP-115 categories (this mapping *is* the crosswalk table)
+- [ ] How attributes here map to OPP-115 attributes (this mapping *is* the crosswalk table)
 
 ---
 
@@ -155,9 +150,7 @@ Final per-site comparison result served to the extension for display.
 }
 ```
 
-Note: quadrant entries are raw sanitized claim/observation strings only —
-deliberately no `explanation` or `summary` field. See `SCOPE_DECISIONS.md`
-("No natural-language explanation of comparison results"). The extension
+Note: quadrant entries are raw sanitized claim/observation strings, no `explanation` or `summary` field. The extension
 renders these as a table; it does not interpret them for the user.
 
 Open questions:
