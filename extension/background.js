@@ -7,6 +7,30 @@ browser.runtime.onMessage.addListener((message) => {
   }
 });
 
+/*
+browser.webRequest.onHeadersReceived.addListener((details) => {
+  console.log("web request url: " + details.url);
+},
+{urls: ["<all_urls>"]},
+["responseHeaders"]
+);
+*/
+
+browser.cookies.onChanged.addListener((info) => {
+  if (info.removed) return;
+
+  const cookie = info.cookie;
+
+  // active tab check
+  const tabs = browser.tabs.query({active: true, currentWindow: true});
+  const activeTab = tabs[0];
+
+  // return if not on correct tab
+  if (!activeTab || !activeTab.url) return;
+
+  console.log("Cookie name: ", cookie.name);
+});
+
 async function getCookiesForActiveTab() {
   const [activeTab] = await browser.tabs.query({ active: true, currentWindow: true });
   if (!activeTab?.url) {
@@ -29,4 +53,8 @@ async function getCookiesForActiveTab() {
       cookie_domain: c.domain
     }))
   };
+}
+
+async function getCookiesWebRequest() {
+  
 }

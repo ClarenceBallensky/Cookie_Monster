@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Compares what a website's privacy policy claims about cookies against what it actually sets.",
 
-  "permissions": ["cookies", "storage", "activeTab"],
+  "permissions": ["cookies", "storage", "activeTab", "webRequest", "<all_urls>", "tabs"],
   "host_permissions": ["<all_urls>"],
 
   "background": {
