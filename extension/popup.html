@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Cookie Monster</title>
     <style>
-      body { font-family: sans-serif; width: 320px; padding: 12px; }
+      body { font-family: sans-serif; width: 400px; padding: 12px; background-color: lightblue;}
       h1 { font-size: 16px; margin: 0 0 8px; }
       #domain { color: #555; font-size: 12px; margin-bottom: 12px; }
       table { width: 100%; border-collapse: collapse; font-size: 12px; }
@@ -14,12 +14,24 @@
   <body>
     <h1>🍪 Cookie Monster</h1>
     <div id="domain">Loading...</div>
-    <table>
-      <thead>
-        <tr><th>Cookie name</th><th>Set by</th></tr>
-      </thead>
-      <tbody id="cookie-rows"></tbody>
-    </table>
+    <div id="firstparty">
+      <h3>First Party Cookies</h3>
+      <table>
+        <thead>
+          <tr><th>Cookie name</th><th>Set by</th></tr>
+        </thead>
+        <tbody id="first-party-rows"></tbody>
+      </table>
+    </div>
+    <div id="thirdparty">
+      <h3>Third Party Cookies</h3>
+      <table>
+        <thead>
+          <tr><th>Cookie name</th><th>Set by</th></tr>
+        </thead>
+        <tbody id="third-party-rows"></tbody>
+      </table>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
